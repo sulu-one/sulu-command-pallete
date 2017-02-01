@@ -1,15 +1,15 @@
 {
   "suluPackage": {
-    "hotkeys" : [
+    "hotkeys": [
       {
-        "key" : "ctrl+shift+p" , 
-        "function" : "openCommandPallete"
+        "key": "ctrl+shift+p",
+        "function": "openCommandPallete"
       }
     ]
-  }, 
+  },
   "name": "sulu-command-pallete",
   "description": "Open command pallette in SULU fileexplorer",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "index.js",
   "scripts": {
     "bump": "npm version patch && git push && git push --tags && npm publish",
