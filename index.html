@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src="node_modules/subsequence-search/build/subsequence-search.min.js"></script>
+	<style type="text/css">
+		.highlightClass{
+			background-color: yellow;
+		}
+	</style>
+</head>
+<body>
+	<input type="text" id="search-text" name="search-text">
+	<div id="test"></div>
+	<script type="text/javascript">
+		var subsearch = window.subsequenceSearch; //or require('subsequence-search') in node
+		var data1 = ['there is some fog', 'have an apple', 'omg! potato?', 'foxes are kinda cool!'];
+		var data2 = {
+		  data: [
+		    {a: 10, b: 'some text'},
+		    {a: 10, b: 'some more text'},
+		    {a: 200, b: 'you shall not pass?'}
+		  ],
+		  searchInProps: ['b']
+		};
+
+
+		var div = document.getElementById("test");
+		var searchTextbox = document.getElementById("search-text");
+		searchTextbox.onkeydown = function(){
+			var searchText = searchTextbox.value;
+			var searchResultElements = subsearch.search({
+			  rank: subsearch.transforms.rank(0),
+			  highlight: subsearch.transforms.highlight('highlightClass')
+			}, data1, searchText);
+			div.innerHTML = searchResultElements;
+		}
+	</script>
+</body>
+</html>
